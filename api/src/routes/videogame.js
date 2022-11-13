@@ -1,27 +1,53 @@
 const {Router} = require ('express');
-const {Videogame, Genre} = require ('../db');
+const axios = require ('axios');
+const {API_KEY, Videogame, Genre} = require ('../db');
 const router = Router ();
 
-router.post ('/', async (req, res,) => {
-    let {name, description, release_Date, rating, platforms, genres} = req.body
-    
-    platforms = platforms.toString();
+router.get ('/:idVideogame', async (req, res) => {
 
-    const newGame = await Videogame.create ({
-        name,
-        description,
-        release_Date,
-        rating,
-        platforms
-    })
+    const {idVideogame} = req.params
 
-    const newGameGenre = await Genre.findAll ({
-        where: {name: genres}
-    })
+       if (idVideogame.includes('-')) {
+           try { 
+               let databaseGame = await Videogame.findByPk (idVideogame, {
+                   include: [{
+                       model: Genre,
+                       attributes: ['name'],
+                       through: {attributes: []}
+                   }]
+               })
 
-    await newGame.addGenre(newGameGenre)
+               databaseGame.genres = databaseGame.genres.map (element => element.name)
 
-    res.send('New game create!!')
+               return res.status (201).json (databaseGame)
 
-})
+           } catch (error) {
+               return console.log ('not game')
+           }
+       } else {
+           try {
+               const response = await axios.get (`https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`)
+
+               let {id, 
+                   name, 
+                   background_image, 
+                   genres, 
+                   description, 
+                   released: release_Date, 
+                   rating, 
+                   platforms} = response.data;
+
+               genres = genres.map (g => g.name)
+               platforms= platforms.map (g => g.platform.name)
+
+               return res.status (201).json ({id, name, background_image, genres, description, release_Date, rating, platforms})
+
+
+           } catch (error) {
+               return console.log (error)
+           }
+       }
+});
+
+
 module.exports = router;
