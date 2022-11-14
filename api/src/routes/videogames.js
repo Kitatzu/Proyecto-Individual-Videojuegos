@@ -77,7 +77,7 @@ router.get ('/', async (req, res) => {
 });
 
 router.post ('/', async (req, res,) => {
-    let {name, description, release_Date, rating, platforms, genres} = req.body
+    let {name, description, release_Date, rating, platforms, genres, inDataBase} = req.body
     
     platforms = platforms.toString();
 
@@ -86,7 +86,8 @@ router.post ('/', async (req, res,) => {
         description,
         release_Date,
         rating,
-        platforms
+        platforms,
+        inDataBase
     })
 
     const newGameGenre = await Genre.findAll ({
