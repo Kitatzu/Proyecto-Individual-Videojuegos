@@ -1,9 +1,9 @@
-import { VIDEOGAMES, GET_DETAILS, GET_GENRES, CREATE_VIDEOGAME, GENRES_FILTER, CREATE_FILTER, ORDER_BY_NAME, GET_BY_NAME } from "../actions/videogameActions";
+import { VIDEOGAMES, GET_DETAILS, GET_GENRES, GET_PLATFORMS, CREATE_VIDEOGAME, GENRES_FILTER, CREATE_FILTER, ORDER_BY_NAME, GET_BY_NAME } from "../actions/videogameActions";
 
 const initialState = {
     videogames: [],
     allGames: [],
-    // videogamesFilter: [],
+    platforms: [],
     genres: [],
     details: []
 }
@@ -24,7 +24,12 @@ function rootReducer (state = initialState, action) {
         case GET_GENRES: 
             return {
                 ...state,
-                gebres: action.payload
+                genres: action.payload
+            }
+        case GET_PLATFORMS: 
+            return {
+                ...state,
+                platforms: action.payload
             }
         case CREATE_VIDEOGAME:
             return {

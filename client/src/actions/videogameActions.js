@@ -8,6 +8,7 @@ export const GENRES_FILTER = 'GENRES_FILTER'
 export const CREATE_FILTER = 'CREATE_FILTER'
 export const ORDER_BY_NAME = 'ORDER_BY_NAME'
 export const GET_BY_NAME = 'GET_BY_NAME'
+export const GET_PLATFORMS = 'GET_PLATFORMS'
 
 export function getAllVideogames () {
     return async function (dispatch) {
@@ -39,6 +40,16 @@ export function getGenreVideogames () {
         return dispatch ({
             type: GET_GENRES,
             payload: gamesGenres.data
+        })
+    }
+}
+
+export function getPlatformsVideogames () {
+    return async function (dispatch) {
+        const gamePlatforms = await axios.get('http://localhost:3001/platforms')
+        return dispatch ({
+            type: GET_PLATFORMS,
+            payload: gamePlatforms.data
         })
     }
 }
