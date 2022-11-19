@@ -33,7 +33,7 @@ function rootReducer (state = initialState, action) {
             }
         case CREATE_VIDEOGAME:
             return {
-                ...state
+                ...state,
             }
         case GENRES_FILTER:
             const allGames = state.allGames

@@ -1,6 +1,6 @@
 const {Router} = require ('express');
 const axios = require ('axios');
-const {API_KEY, Videogame, Genre} = require ('../db');
+const {API_KEY, Videogame, Genres} = require ('../db');
 const router = Router ();
 
 router.get ('/', async (req, res) => {
@@ -8,7 +8,7 @@ router.get ('/', async (req, res) => {
 
    let databaseGames = await Videogame.findAll ({
         include: {
-            model: Genre,
+            model: Genres,
             attributes: ['name'],
             through: {attributes: []}
         }
@@ -90,7 +90,7 @@ router.post ('/', async (req, res,) => {
         inDataBase
     })
 
-    const newGameGenre = await Genre.findAll ({
+    const newGameGenre = await Genres.findAll ({
         where: {name: genres}
     })
 

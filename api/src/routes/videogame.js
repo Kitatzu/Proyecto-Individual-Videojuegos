@@ -1,6 +1,6 @@
 const {Router} = require ('express');
 const axios = require ('axios');
-const {API_KEY, Videogame, Genre} = require ('../db');
+const {API_KEY, Videogame, Genres} = require ('../db');
 const router = Router ();
 
 router.get ('/:idVideogame', async (req, res) => {
@@ -11,7 +11,7 @@ router.get ('/:idVideogame', async (req, res) => {
            try { 
                let databaseGame = await Videogame.findByPk (idVideogame, {
                    include: [{
-                       model: Genre,
+                       model: Genres,
                        attributes: ['name'],
                        through: {attributes: []}
                    }]
