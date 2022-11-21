@@ -3,6 +3,22 @@ import { useDispatch, useSelector } from "react-redux";
 import {Link, useHistory} from 'react-router-dom';
 import {getGenreVideogames, createVideogame, getPlatformsVideogames} from '../actions/videogameActions'
 
+
+function validate (input) {
+    let error = {}
+    if (!input.name) {
+        error.name= 'Name is required'
+    } else if (!input.rating || input.rating < 0 || input.rating > 5) {
+        error.rating = 'Rating has to be a number between 0 and 5'
+    } else if (input.genres.length === 0) {
+        error.genres = 'Genres ir required'
+    } else if (input.platforms.length === 0) {
+        error.platforms = 'Platforms is required'
+    }
+
+    return error
+}
+
 export default function CreateVideogame () {
     const dispatch = useDispatch()
     const history = useHistory()
@@ -19,6 +35,8 @@ export default function CreateVideogame () {
         platforms: []
     })
 
+    const [error, setError] = useState ({})
+
     useEffect (() => {
         dispatch(getGenreVideogames ())
     }, [dispatch])
@@ -32,6 +50,11 @@ export default function CreateVideogame () {
             ...input,
             [c.target.name]: c.target.value,
         })
+
+        setError (validate ({
+            ...input,
+            [c.target.name]: c.target.value
+        }))
     }
 
     function handleSelectGenres(g) {
@@ -50,7 +73,13 @@ export default function CreateVideogame () {
 
     function handleSubmit (element) {
         element.preventDefault();
-        console.log(input);
+        if (!input.name) {return alert ('Name is required')}
+        if (!input.rating) {return alert ('Rating is required')}
+        if (!/^(?:[1-9]\d{0,2}(?:,\d{3})*|0)(?:\.\d+)?$/.test(input.rating) ||
+            input.rating < 0 || input.rating > 5) {return alert ('Rating has to be a number between 0 and 5')}
+        if (input.genres.length === 0) {return alert ('Genres is requerid')}
+        if (input.platforms.length === 0) {return alert ('Platforms is requerid')}
+
         dispatch (createVideogame(input))
         alert ('The new game is born')
         setInput ({
@@ -95,8 +124,8 @@ return (
                  name= 'name'
                     onChange={handleChange}
                  required
-                 
                 />
+                {error.name && (<p className='error'> {error.name} </p>)}
             </div>
 
             <div>
@@ -137,6 +166,7 @@ return (
                     name= 'rating'
                 required
                 />
+                {error.rating && (<p className="error" > {error.rating} </p>)}
             </div>
 
             <div>
@@ -159,6 +189,7 @@ return (
                         
                         )}
                     </ul>
+                    {error.genres && (<p className="error"> {error.genres} </p>)}
             </div>
 
             <div>
@@ -180,6 +211,7 @@ return (
                             </li>
                         )}
                     </ul>
+                    {error.platforms && (<p className="error"> {error.platforms} </p>)}
 
             </div>
             <button className='btn' type= 'submit'> Create! </button>

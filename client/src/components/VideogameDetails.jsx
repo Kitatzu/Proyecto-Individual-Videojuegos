@@ -24,7 +24,7 @@ export default function Detail (props) {
             <h2>Genres:</h2> {game.genres + ' '}
             <h2>Platforms:</h2>
             <ul>{game.platforms + ', '}</ul>
-            <h2>Release Date: {game.released}</h2>
+            <h2>Release Date: {game.release_Date}</h2>
             <h2>Rating: {game.rating}</h2>
             <h2>Description: </h2>
             <p>{game.description}</p>

@@ -1,0 +1,32 @@
+
+.body {
+    
+    background-image: url('https://images7.alphacoders.com/901/901507.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    min-height: 100%;
+    min-width: 800px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+}
+.h1 {
+    position: fixed;
+    right: 50rem;
+    top: 5rem;
+    color: antiquewhite;
+    
+}
+
+.button {
+    position: fixed;
+    right: 60rem;
+    top: 14rem;
+    cursor: pointer;
+    width: 10rem;
+    height: 1.5rem;
+   
+
+    
+} 
