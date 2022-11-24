@@ -9,25 +9,25 @@ router.get ('/', async (req, res) => {
 
         if (platformsInDb.length) return res.json (platformsInDb)
       
-            const platformsInApi = await axios.get (`https://api.rawg.io/api/platforms?key=${API_KEY}`);
-            const platforms = platformsInApi.data.results;
-            platforms.forEach (async p => {
-                await Platforms.findOrCreate ({
-                    where: {
-                        name: p.name
-                    }
-                })
-            })
+        //     const platformsInApi = await axios.get (`https://api.rawg.io/api/platforms?key=${API_KEY}`);
+        //     const platforms = platformsInApi.data.results;
+        //     platforms.forEach (async p => {
+        //         await Platforms.findOrCreate ({
+        //             where: {
+        //                 name: p.name
+        //             }
+        //         })
+        //     })
          
         
     
-        const allPlatforms = platforms.map (g => {
-            return {
-                name: g.name
-            }
-        })
+        // const allPlatforms = platforms.map (g => {
+        //     return {
+        //         name: g.name
+        //     }
+        // })
 
-        return res.send (allPlatforms)
+        // return res.send (allPlatforms)
 
     } catch (error) {
         console.log (`platforms not found ${error}`)

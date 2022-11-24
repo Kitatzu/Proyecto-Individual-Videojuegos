@@ -5,6 +5,7 @@ import {getAllVideogames, getGenreVideogames, filterForGenres, gamecreateFilter,
 import VideogameCard from './VideogameCard';
 import Searchbar from './Searchbar';
 import Paginated from './Paginated';
+import style from './StyledComponents/Home.module.css'
 
 
 export default function Home () {
@@ -29,11 +30,6 @@ export default function Home () {
          dispatch (getAllVideogames ());
     }, [])
 
-    function handleClick (e){
-        e.preventDefault();
-        dispatch(getAllVideogames());
-    }
-
     function handleFilterforGenre (g) {
         dispatch (filterForGenres(g.target.value))
     }
@@ -50,21 +46,30 @@ export default function Home () {
     }
 
     return (
-        <div className="Home">
-            <h1> Videogames </h1>
-            <Link className="link" to= '/videogame'>
-                <button className="buttonCreate"> create your own game </button>
-            </Link>
-            <button onClick={e => {handleClick(e)}} className= 'refresh btn'> Reload!! </button>
+        <div className= {style.conteiner}>
+            
+            <div className= {style.title}>
+                <h1 className= {style.h1}> Videogames </h1>
+                <div className= {style.Searchbar}>
+                <Searchbar/>
+                </div>
+            </div>
 
-            <div>
-                <select onChange={e => handleOrderName(e)}>
-                    <option value= 'asc' > Upward </option>
-                    <option value= 'desc'> Falling </option>
+            <div className= {style.create}>
+                <Link className="link" to= '/videogame'>
+                    <button className= {style.createbtn}> create your own game </button>
+                </Link>
+            </div>
+
+            <div className= {style.filters}>
+                <select className = {style.select} onChange={e => handleOrderName(e)}>
+                    <option defaultValue= 'asc'> Default </option>
+                    <option value= 'asc' > A - Z </option>
+                    <option value= 'desc'> Z - A </option>
                     <option value= 'rating'> Rating </option>
                 </select>
 
-                <select onChange={e => handleFilterforGenre (e)}>
+                <select className = {style.select} onChange={e => handleFilterforGenre (e)}>
                     <option value='All' key= 'u1'> All </option>
                     {allGenres.map ((el) => {
                         return (
@@ -73,26 +78,31 @@ export default function Home () {
                     })}
 
                 </select>
-                <select onChange={e => handleForCreateGame(e)}>
+                <select className = {style.select} onChange={e => handleForCreateGame(e)}>
                     <option value='All'> All Games!! </option>
                     <option value='DB'> Games created for you! </option>
                     <option value= 'API '> Original Games </option>
                 </select>
 
+                <button className= {style.refreshbtn} type= 'button' onClick={() => window.location.reload()} > Refresh!! </button>
+
+                </div>
+                
+                <div className= {style.paginated}>
                 <Paginated
                     gamesPerPage={gamesPerPage}
                     allGames = {allGames.length}
                     paginated = {paginated}
                 />
-
-                <Searchbar/>
-
-                <ul className= 'VideogameCards'>
+                </div>
+                
+                <div> 
+                <ul className= {style.ul}>
                     {
                         currentGames?.map((g, index) => {
                             return (
-                                <li key= {index} className = 'VideogameCard'>
-                                    <Link to= {'/videogame/' + g.id}>
+                                <li key= {index} className = {style.videogameCard}>
+                                    <Link to= {'/videogame/' + g.id} className= {style.card}>
                                         <VideogameCard 
                                         name= {g.name} 
                                         background_image= {g.background_image}

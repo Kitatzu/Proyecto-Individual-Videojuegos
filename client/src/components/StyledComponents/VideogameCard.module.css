@@ -1,0 +1,13 @@
+
+
+.art {
+    background: white;
+    width: 220px;
+    height: 330px;
+    padding-top: 0.5px;
+    font-size: 15px;
+    color: black;
+    cursor: pointer;
+    border-radius: 10px;
+}
+

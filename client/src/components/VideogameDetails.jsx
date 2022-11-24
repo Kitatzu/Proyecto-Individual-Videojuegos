@@ -27,7 +27,7 @@ export default function Detail (props) {
             <h2>Release Date: {game.release_Date}</h2>
             <h2>Rating: {game.rating}</h2>
             <h2>Description: </h2>
-            <p>{game.description}</p>
+            <p>{game.description_raw}</p>
           </div> :
           <p>... Loading ...</p>
         }

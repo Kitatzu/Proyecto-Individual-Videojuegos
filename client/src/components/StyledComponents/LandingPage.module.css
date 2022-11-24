@@ -25,8 +25,22 @@
     top: 14rem;
     cursor: pointer;
     width: 10rem;
-    height: 1.5rem;
-   
+    height: 1.7rem;
 
-    
+    display: inline-block;
+    background: black;
+    color: antiquewhite;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    border-color: transparent;
+    text-transform: capitalize;
+    font-size: 1rem;
+    letter-spacing: var(--spacing);
+    cursor: pointer;
+  
 } 
+
+.button:hover {
+    background: white;
+    color: black;
+}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {Link, useHistory} from 'react-router-dom';
 import {getGenreVideogames, createVideogame, getPlatformsVideogames} from '../actions/videogameActions'
+import style from './StyledComponents/CreateVideogame.module.css'
 
 
 function validate (input) {
@@ -110,13 +111,13 @@ export default function CreateVideogame () {
     }
 
 return (
-    <div>
+    <div className= {style.div}>
         <Link to ='/home'>
-            <button className="btn"> Back to Home </button>
+            <button> Back to Home </button>
         </Link>
-        <h1> Create game!! </h1>
-        <form className="form" onSubmit={e => handleSubmit (e)}>
-            <div>
+        <h1 className= {style.h1}> Create game!! </h1>
+        <form className= {style.form} onSubmit={e => handleSubmit (e)}>
+            <div className= {style.details}>
                 <label className= ".form input"> Name </label>
                 <input 
                  type="text"
@@ -126,9 +127,7 @@ return (
                  required
                 />
                 {error.name && (<p className='error'> {error.name} </p>)}
-            </div>
-
-            <div>
+            
                 <label className=".form input"> Description </label>
                 <input 
                 type= 'text'
@@ -137,9 +136,7 @@ return (
                     onChange={handleChange}
                 required 
                 />
-            </div>
-
-            <div>
+          
                 <label className=".form input"> Image </label>
                 <input 
                 type= 'text'
@@ -148,17 +145,14 @@ return (
                     onChange={handleChange}
                 required 
                 />
-            </div>
 
-            <div>
                 <label> Release Date </label>
                 <input onChange={handleChange}
                  type= 'date' 
                  value={input.release_Date}
                     name= 'release_Date'
                 />
-            </div>
-            <div>
+
             <label> Rating </label>
                 <input onChange={handleChange}
                  type= 'number'
@@ -167,9 +161,7 @@ return (
                 required
                 />
                 {error.rating && (<p className="error" > {error.rating} </p>)}
-            </div>
 
-            <div>
                 <label> Genres </label>
                 <select onChange={g => handleSelectGenres (g)}>
                     <option value='All' key= 'u1'>
@@ -190,9 +182,7 @@ return (
                         )}
                     </ul>
                     {error.genres && (<p className="error"> {error.genres} </p>)}
-            </div>
 
-            <div>
                 <label> Platforms </label>
                 <select onChange={p => handleSelectPlatforms (p)}>
                     <option value="All" key= 'u2'>

@@ -57,7 +57,8 @@ function rootReducer (state = initialState, action) {
                 videogames: action.payload
             }
         case ORDER_BY_NAME:
-            if (action.payload === 'rating') {
+                
+                if (action.payload === 'rating') {
                 let sortArr = state.videogames.sort (function (a, b) {
                     if (a.rating > b.rating) {
                         return -1

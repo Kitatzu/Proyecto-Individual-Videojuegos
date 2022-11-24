@@ -32,7 +32,7 @@ router.get ('/:idVideogame', async (req, res) => {
                    name, 
                    background_image, 
                    genres, 
-                   description, 
+                   description_raw, 
                    released: release_Date, 
                    rating, 
                    platforms} = response.data;
@@ -40,7 +40,7 @@ router.get ('/:idVideogame', async (req, res) => {
                genres = genres.map (g => g.name)
                platforms= platforms.map (g => g.platform.name)
 
-               return res.status (201).json ({id, name, background_image, genres, description, release_Date, rating, platforms})
+               return res.status (201).json ({id, name, background_image, genres, description_raw, release_Date, rating, platforms})
 
 
            } catch (error) {
