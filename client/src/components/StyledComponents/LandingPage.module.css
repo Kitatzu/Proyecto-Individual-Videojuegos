@@ -13,29 +13,30 @@
 }
 .h1 {
     position: fixed;
-    right: 50rem;
-    top: 5rem;
+    right: 950px;
+    top: 100px;
     color: antiquewhite;
+    font-size: 40px;
     
 }
 
 .button {
     position: fixed;
-    right: 60rem;
-    top: 14rem;
+    right: 960px;
+    top: 244px;
     cursor: pointer;
-    width: 10rem;
-    height: 1.7rem;
+    width: 160px;
+    height: 27.2px;
 
     display: inline-block;
     background: black;
     color: antiquewhite;
-    padding: 0.25rem 0.75rem;
-    border-radius: 1rem;
+    padding: 4px 12px;
+    border-radius: 16px;
     border-color: transparent;
     text-transform: capitalize;
-    font-size: 1rem;
-    letter-spacing: var(--spacing);
+    font-size: 16px;
+    letter-spacing: 1px;
     cursor: pointer;
   
 } 

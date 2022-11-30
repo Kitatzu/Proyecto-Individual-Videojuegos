@@ -6,7 +6,7 @@ export default function VideogameCard ({name, background_image, genres, index}) 
         <section key = {index} className= {style.section}>
             <article className= {style.art} >
                 <h4> {name} </h4>
-                <img src= {background_image} width= '200' height= '200' alt= "This game image is not found" />
+                <img src= {background_image} width= '200' height= '200' alt= 'not found' />
                 <h5> {genres.map ((e, index) => (
                     <div key = {index}>
                         <i> {e} </i>

@@ -5,6 +5,7 @@
     background-size: cover; 
     font-family: Arial, Helvetica, sans-serif; 
     margin-top: -26px;
+    margin-bottom: -30px;
 }
 
 .title {
@@ -45,7 +46,6 @@
     text-transform: capitalize;
     font-size: 15px;
     letter-spacing: 2px;
-    cursor: pointer;
 }
 
 .createbtn:hover {
@@ -54,6 +54,8 @@
 }
 
 .refreshbtn {
+    position: relative;
+    top: 5px;
     cursor: pointer;
     display: inline-block;
     background: black;
@@ -62,14 +64,22 @@
     border-radius: 16px;
     border-color: transparent;
     text-transform: capitalize;
-    font-size: 16px;
+    font-size: 14px;
     letter-spacing: 1px;
     cursor: pointer;
+    width: 50%;
+    height: 60%;
 }
 
 .refreshbtn:hover {
     background: white;
     color: black;
+}
+
+.paginated {
+    background: rgba(0, 0, 0, 0.555);
+    height: 50px;
+    
 }
 
 .filters {

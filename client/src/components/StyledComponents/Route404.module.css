@@ -1,0 +1,53 @@
+.cont {
+    background: black;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover; 
+    min-height: 100%;
+    min-width: 800px;
+    width: 100%;
+    height: auto;
+    position: fixed;
+    
+}
+
+.div {
+    display: block;
+}
+
+.h1 {
+    color: brown;
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    position: relative;
+    top: 440px;
+    right: 10px;
+}
+
+.img {
+    justify-content: center;
+    width: 500px;
+    height: 500px;
+    position: relative;
+    right: 50px;
+    bottom: 100px;
+}
+
+.button {
+    position: relative;
+    left: 230px;
+    bottom: 40px;
+    background: brown;
+    color: antiquewhite;
+    border-color: transparent;
+    padding: 4px 12px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: 15px;
+}
+
+.button:hover {
+    background: white;
+    color: brown;
+}

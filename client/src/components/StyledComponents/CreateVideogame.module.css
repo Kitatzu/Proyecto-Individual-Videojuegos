@@ -15,5 +15,94 @@
 }
 
 .form {
+    background: white;
+    display: inline-block;
+    text-align: left;
+    text-align: justify;
+    border-radius: 10px;
+    padding: 10px;
+    margin: auto;
+    width: 500px;
+    height: 430px;
+    font-size: 20px;
+}
+
+.name {
+    margin: 20px;
+
+ 
+}
+
+.description {
+    margin: 20px;
     
+}
+
+
+.image {
+    margin: 20px;
+}
+
+.date {
+    margin: 20px;
+
+}
+
+.rating {
+    margin: 20px;
+}
+
+.genres {
+    margin: 20px;
+}
+
+.platforms {
+   margin: 20px;
+}
+
+.error {
+    color: red;
+    font-size: 10px;
+    position: relative;
+    left: 250px;
+    bottom: 30px;
+}
+
+.button {
+    position: relative;
+    top: 10px;
+    left: 200px;
+    cursor: pointer;
+    background: black;
+    color: antiquewhite;
+    margin: 10px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    border-color: transparent;
+    text-transform: capitalize;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.button:hover {
+    background: white;
+    color: black;
+}
+
+.buttonHome {
+    cursor: pointer;
+    background: black;
+    color: antiquewhite;
+    margin: 10px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    border-color: transparent;
+    text-transform: capitalize;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.buttonHome:hover {
+    background: white;
+    color: black;
 }

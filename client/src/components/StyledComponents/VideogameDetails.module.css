@@ -1,0 +1,111 @@
+
+.conteiner {
+    font-family: Arial, Helvetica, sans-serif;
+    background: black;
+    color: antiquewhite;
+    margin-top: -40px;
+    padding: 0px;
+}
+
+.h1 {
+    position: relative;
+    bottom: 230px;
+    left: 160px;
+    display: inline-flex;
+}
+
+.divGenres {
+    list-style: none;
+    display: inline-flex;
+    position: relative;
+    bottom: 160px;
+    right: 450px;
+}
+
+.genres {
+    position: relative;
+    top: 12px;
+    left: 10px;
+}
+
+.divPlat {
+    list-style: none;
+    display: inline-flex;
+    position: relative;
+    bottom: 190px;
+    left: 300px;
+}
+
+.platforms {
+    position: relative;
+    top: 11px;
+    right: 25px;
+}
+
+.divDate {
+    display: inline-flex;
+    position: relative;
+    right: 450px;
+    bottom: 142px;
+}
+
+.date {
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.divRating {
+    display: inline-flex;
+    position: relative;
+    right: 690px;
+    bottom: 100px;
+}
+
+.rating {
+    position: relative;
+    top: 10px;
+    left: 10px;
+}
+
+.divDescription {
+    display: inline-block;
+    text-align: left;
+    line-height: 110%;
+    position: relative;
+    left: 10px;
+    margin-left: 15px;
+    margin-right: 20px;
+    margin-bottom: 15px;
+}
+
+.description {
+    position: relative;
+    
+}
+
+.img {
+    position: relative;
+    top: 50px;
+    right: 500px;
+    border: 10px solid white;
+    display: inline-flex;
+}
+
+.button {
+    cursor: pointer;
+    background: black;
+    color: antiquewhite;
+    margin: 10px;
+    padding: 4px 12px;
+    border-radius: 16px;
+    border-color: transparent;
+    text-transform: capitalize;
+    font-size: 15px;
+    letter-spacing: 2px;
+}
+
+.button:hover {
+    background: white;
+    color: black;
+}
